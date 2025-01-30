@@ -1,0 +1,22 @@
+Used to organize functions:
+
+- BoidFile
+    - This contains the sort of things you run at initialization time, and anything specific to syntax conversion
+    - Load
+    - Save
+    - Display/Print map
+    - Print existing static parameter info
+- BoidData
+    - Map/environment functionality
+        - Create
+        - Destroy
+        - Print live dynamic parameter info
+    - Print live debug information
+- BoidSolver
+    - Boid movement
+    - Boid checks
+    - Boid information storage
+- Queue
+    - raw queue functions
+- mainTest
+    - Runs operations above
