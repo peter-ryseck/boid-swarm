@@ -1,7 +1,5 @@
 # Boid Swarm Simulation
 
-<img width="1779" alt="Screenshot 2025-01-31 at 3 00 14 PM" src="https://github.com/user-attachments/assets/257dbac8-d7dd-4118-8b3b-2f7964850435" />
-
 Overview
 
 This project simulates a boid swarm, a model for flocking behavior in birds, fish, and other collective animal movement. The simulation implements three fundamental steering behaviors:
@@ -9,6 +7,9 @@ This project simulates a boid swarm, a model for flocking behavior in birds, fis
 *   **Alignment:** Boids adjust their velocity to match the average direction of nearby boids.
 *   **Cohesion:** Boids move toward the center of mass of their neighbors.
 *   **Separation:** Boids steer away from close neighbors to avoid collisions.
+
+  <img width="700" alt="Screenshot 2025-01-31 at 3 02 27 PM" src="https://github.com/user-attachments/assets/192c1c42-1b3e-4474-97e3-b96eff613eb4" />
+  
 
 The simulation is written in C and uses SDL2 for visualization.
 
