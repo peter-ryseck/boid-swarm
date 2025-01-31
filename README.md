@@ -13,7 +13,7 @@ This project simulates a boid swarm, a model for flocking behavior in birds, fis
 
 The simulation is written in C and uses SDL2 for visualization.
 
-Compilation & Execution
+## Compilation & Execution
 
 Prerequisites
 
