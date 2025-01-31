@@ -24,6 +24,7 @@ On macOS, you can install dependencies using:
 
 ```bash
 brew install sdl2 openblas
+```
 
 ## Compiling the Program
 
@@ -34,6 +35,7 @@ gcc -O3 -o boid boid.c utils.c display.c \
     -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib \
     -L/opt/homebrew/opt/openblas/lib -I/opt/homebrew/opt/openblas/include \
     -lopenblas -lSDL2
+```
 
 ## Running the Simulation
 
@@ -41,6 +43,7 @@ Once compiled, start the simulation with:
 
 ```sh
 ./boid
+```
 
 This will launch a window displaying a swarm of boids moving based on alignment, cohesion, and separation rules.
 
