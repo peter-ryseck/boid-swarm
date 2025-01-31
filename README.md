@@ -1,5 +1,7 @@
 # Boid Swarm Simulation
 
+<img width="1779" alt="Screenshot 2025-01-31 at 3 00 14 PM" src="https://github.com/user-attachments/assets/257dbac8-d7dd-4118-8b3b-2f7964850435" />
+
 Overview
 
 This project simulates a boid swarm, a model for flocking behavior in birds, fish, and other collective animal movement. The simulation implements three fundamental steering behaviors:
