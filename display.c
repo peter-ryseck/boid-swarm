@@ -85,8 +85,6 @@ void RenderBoids(SDL_Renderer *renderer, Boid *boids, int numBoids) {
     }
 
     SDL_RenderPresent(renderer);
-
-    SDL_Delay(1);
 }
 
 void CleanupDisplay(SDL_Window *window, SDL_Renderer *renderer) {

@@ -8,7 +8,7 @@ This project simulates a boid swarm, a model for flocking behavior in birds, fis
 *   **Cohesion:** Boids move toward the center of mass of their neighbors.
 *   **Separation:** Boids steer away from close neighbors to avoid collisions.
 
-The simulation is written in C and uses SDL2 for visualization and OpenBLAS for optimized mathematical operations.
+The simulation is written in C and uses SDL2 for visualization.
 
 Compilation & Execution
 
@@ -72,12 +72,6 @@ You can tweak the following parameters in `boid.h` to modify the simulation:
 - **ALIGNMENT_RADIUS** – Distance within which boids align with neighbors.
 - **COHESION_RADIUS** – Distance within which boids group together.
 - **SEPARATION_RADIUS** – Distance within which boids avoid each other.
-- **NUM_BOIDS** – Total number of boids in the simulation.
-
-For additional functionality, consider adding:
-- **Obstacle avoidance**
-- **Predators to influence boid movement**
-- **Multiple flocks with different behaviors**
 
 ## License
 
