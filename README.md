@@ -68,10 +68,17 @@ The simulation runs in a loop, updating boid positions and rendering them in rea
 ## Customization & Improvements
 
 You can tweak the following parameters in `boid.h` to modify the simulation:
-- **MAX_SPEED** – Maximum speed a boid can move.
-- **ALIGNMENT_RADIUS** – Distance within which boids align with neighbors.
-- **COHESION_RADIUS** – Distance within which boids group together.
-- **SEPARATION_RADIUS** – Distance within which boids avoid each other.
+
+- **`MAX_SPEED`** – Maximum speed a boid can move.
+- **`MIN_SPEED`** – Minimum speed a boid can move.
+- **`ALIGNMENT_RADIUS`** – Distance within which boids align with neighbors.
+- **`COHESION_RADIUS`** – Distance within which boids group together.
+- **`SEPARATION_RADIUS`** – Distance within which boids avoid each other.
+- **`MAX_SEPARATION_FORCE`** – Maximum force with which boids separate from each other.
+- **`MAX_ALIGNMENT_FORCE`** – Maximum force with which boids align with each other.
+- **`MAX_COHESION_FORCE`** – Maximum force with which boids move toward the center of mass.
+- **`MAX_WALL_FORCE`** – Maximum force with which boids are pushed away from the walls.
+- **`WALL_MARGIN`** – Distance from the edge of the simulation where wall forces begin to take effect.
 
 ## License
 
