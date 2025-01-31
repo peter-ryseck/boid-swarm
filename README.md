@@ -70,7 +70,7 @@ The simulation runs in a loop, updating boid positions and rendering them in rea
 
 ## Customization & Improvements
 
-You can tweak the following parameters in `boid.h` to modify the simulation:
+You can tweak the following parameters in `boid.h` to modify the simulation. This will result in very different behaviors:
 
 - **`MAX_SPEED`** – Maximum speed a boid can move.
 - **`MIN_SPEED`** – Minimum speed a boid can move.
