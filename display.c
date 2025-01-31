@@ -69,7 +69,7 @@ void DrawArrow(SDL_Renderer *renderer, float centerX, float centerY, float angle
     SDL_RenderDrawLine(renderer, (int)centerX, (int)centerY, (int)lineEndX, (int)lineEndY);
 
     // Arrowhead size
-    float arrowheadSize = 4.0f;
+    float arrowheadSize = 6.0f;
 
     // Angle for the arrowhead
     float arrowheadAngle1 = angle - M_PI / 6;
@@ -104,7 +104,7 @@ void RenderBoids(SDL_Renderer *renderer, Boid *boids, int numBoids) {
         float angle = atan2(boids[index].vely, boids[index].velx) + M_PI;
         
         // Draw an arrow indicating the direction
-        DrawArrow(renderer, boids[index].posx, boids[index].posy, angle, 4.0f); // Adjust arrow length as needed
+        DrawArrow(renderer, boids[index].posx, boids[index].posy, angle, 6.0f); // Adjust arrow length as needed
     }
 
     // Present the rendered frame to the screen

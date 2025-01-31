@@ -26,10 +26,10 @@ static Boid* InitializeBoids(const unsigned int numBoids)
 
     for (unsigned int index = 0; index < numBoids; index++)
     {
-        boids[index].posx = GetRandomFloat(0, SCREEN_WIDTH);
-        boids[index].posy = GetRandomFloat(0, SCREEN_HEIGHT);
-        boids[index].velx = GetRandomFloat(-MAX_SPEED, MAX_SPEED);
-        boids[index].vely = GetRandomFloat(-MAX_SPEED, MAX_SPEED);
+        boids[index].posx = GetRandomFloat(SCREEN_WIDTH/2, SCREEN_WIDTH/2);
+        boids[index].posy = GetRandomFloat(SCREEN_HEIGHT/2, SCREEN_HEIGHT/2);
+        boids[index].velx = GetRandomFloat(MAX_SPEED, MAX_SPEED);
+        boids[index].vely = GetRandomFloat(MAX_SPEED, MAX_SPEED);
     }
 
     return boids;
@@ -178,10 +178,14 @@ int main()
     SDL_Renderer *renderer = NULL;
     InitDisplay(&window, &renderer);
 
+    Uint64 start = SDL_GetPerformanceCounter();
+
     SDL_Event event;
     bool isRunning = true;
     while (isRunning)
     {
+        Uint64 frameStart = SDL_GetPerformanceCounter();
+
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 isRunning = 0; // Exit loop
@@ -196,6 +200,9 @@ int main()
             UpdateBoid(&boids[index], boids, numBoids);
         }
         RenderBoids(renderer, boids, numBoids);
+        Uint64 frameEnd = SDL_GetPerformanceCounter();
+        double elapsedMS = (double)(frameEnd - frameStart) / SDL_GetPerformanceFrequency() * 1000.0;
+        printf("Frame Time: %.3f ms\n", elapsedMS);
     }
 
     // Clean up resources

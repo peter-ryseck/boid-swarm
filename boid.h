@@ -23,7 +23,7 @@ typedef struct {
 } SteerForce;
 
 // Constants for boid behavior
-#define SEPARATION_RADIUS 10.0f
+#define SEPARATION_RADIUS 12.0f
 #define ALIGNMENT_RADIUS 30.0f
 #define COHESION_RADIUS 30.0f
 #define MAX_SEPERATION_FORCE 0.02f

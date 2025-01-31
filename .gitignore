@@ -1,0 +1,8 @@
+*.json
+3
+boid_swarm_py/.DS_Store
+boid_swarm_py/.idea/boid_swarm_py.iml
+boid_swarm_py/.idea/inspectionProfiles/profiles_settings.xml
+boid_swarm_py/.idea/inspectionProfiles/Project_Default.xml
+boid_swarm_py/.idea/misc.xml
+.DS_Store
