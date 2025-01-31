@@ -28,8 +28,8 @@ static Boid* InitializeBoids(const unsigned int numBoids)
     {
         boids[index].posx = GetRandomFloat(SCREEN_WIDTH/2, SCREEN_WIDTH/2);
         boids[index].posy = GetRandomFloat(SCREEN_HEIGHT/2, SCREEN_HEIGHT/2);
-        boids[index].velx = GetRandomFloat(MAX_SPEED, MAX_SPEED);
-        boids[index].vely = GetRandomFloat(MAX_SPEED, MAX_SPEED);
+        boids[index].velx = GetRandomFloat(0, MAX_SPEED);
+        boids[index].vely = GetRandomFloat(0, MAX_SPEED);
     }
 
     return boids;
@@ -65,7 +65,6 @@ static void ApplySteering(Boid *boid, SteerForce *vectorSum, unsigned int total,
     }
 }
 
-// Update the position and velocity of a given boid
 static void ComputeBehavior(Boid *boid, Boid *boids, const unsigned int numBoids)
 {
     SteerForce alignSum = {0, 0};
@@ -123,7 +122,6 @@ static void UpdateBoid(Boid *boid, Boid *boids, const unsigned int numBoids)
     float velMag;
     Magnitude(&boid->velx, &boid->vely, &velMag);
     if (velMag < MIN_SPEED) {
-        // Normalize the velocity and scale to the minimum speed
         Normalize(&boid->velx, &boid->vely);
         boid->velx *= MIN_SPEED;
         boid->vely *= MIN_SPEED;
@@ -178,8 +176,6 @@ int main()
     SDL_Renderer *renderer = NULL;
     InitDisplay(&window, &renderer);
 
-    Uint64 start = SDL_GetPerformanceCounter();
-
     SDL_Event event;
     bool isRunning = true;
     while (isRunning)
@@ -188,24 +184,18 @@ int main()
 
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
-                isRunning = 0; // Exit loop
+                isRunning = 0;
             }
         }
 
         for (unsigned int index = 0; index < numBoids; index++)
         {
-            //printf("Boid %d position: (%.2f, %.2f) velocity: (%.2f, %.2f)\n", index, boids[index].posx, boids[index].posy, boids[index].velx, boids[index].vely);
             Edges(&boids[index]);
-            //printf("Boid %d position: (%.2f, %.2f) velocity: (%.2f, %.2f)\n", index, boids[index].posx, boids[index].posy, boids[index].velx, boids[index].vely);
             UpdateBoid(&boids[index], boids, numBoids);
         }
         RenderBoids(renderer, boids, numBoids);
-        Uint64 frameEnd = SDL_GetPerformanceCounter();
-        double elapsedMS = (double)(frameEnd - frameStart) / SDL_GetPerformanceFrequency() * 1000.0;
-        printf("Frame Time: %.3f ms\n", elapsedMS);
     }
 
-    // Clean up resources
     CleanupDisplay(window, renderer);
 
     free(boids);

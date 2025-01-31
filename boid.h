@@ -14,8 +14,8 @@
 #include <assert.h>
 
 typedef struct {
-    float posx, posy;           // Position
-    float velx, vely;         // Velocity
+    float posx, posy;
+    float velx, vely;
 } Boid;
 
 typedef struct {
@@ -29,14 +29,9 @@ typedef struct {
 #define MAX_SEPERATION_FORCE 0.02f
 #define MAX_ALIGNMENT_FORCE 0.004f
 #define MAX_COHESION_FORCE 0.004f
-#define MAX_WALL_FORCE 0.02f
+#define MAX_WALL_FORCE 0.03f
 #define WALL_MARGIN 100
-
 #define MAX_SPEED 1.0f
 #define MIN_SPEED 0.5f
-
-
-// void update_boid(Boid *boid, float deltaTime);
-// void apply_behaviors(Boid *boid, Boid *boids, int numBoids);
 
 #endif

@@ -12,7 +12,6 @@
 #include "display.h"
 #include <stdio.h>
 
-// Initialize SDL display: window and renderer
 void InitDisplay(SDL_Window **window, SDL_Renderer **renderer) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -43,23 +42,6 @@ void InitDisplay(SDL_Window **window, SDL_Renderer **renderer) {
     }
 }
 
-// Function to draw a circle
-// void SDL_RenderDrawCircle(SDL_Renderer *renderer, int centerX, int centerY, int radius)
-// {
-//     // Loop over angles from 0 to 360 degrees
-//     for (int angle = 0; angle < 360; angle++) {
-//         // Convert angle to radians
-//         float rad = angle * M_PI / 180.0f;
-        
-//         // Calculate the x and y position of the point on the circle
-//         int x = centerX + (int)(radius * cos(rad));
-//         int y = centerY + (int)(radius * sin(rad));
-
-//         // Draw the point
-//         SDL_RenderDrawPoint(renderer, x, y);
-//     }
-// }
-
 void DrawArrow(SDL_Renderer *renderer, float centerX, float centerY, float angle, float length) {
     // Arrow's line coordinates
     float lineEndX = centerX + length * cos(angle);
@@ -88,32 +70,25 @@ void DrawArrow(SDL_Renderer *renderer, float centerX, float centerY, float angle
 }
 
 
-// Render the boids on the screen
 void RenderBoids(SDL_Renderer *renderer, Boid *boids, int numBoids) {
-    // Rendering logic here
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    // Set the color for rendering the boids (white)
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-    // Loop through each boid and render it as a small dot
     for (unsigned int index = 0; index < numBoids; index++) {
         // Draw each boid as a small dot based on its position
-        // SDL_RenderDrawCircle(renderer, (int)boids[index].posx, (int)boids[index].posy, 5);
         float angle = atan2(boids[index].vely, boids[index].velx) + M_PI;
         
         // Draw an arrow indicating the direction
         DrawArrow(renderer, boids[index].posx, boids[index].posy, angle, 6.0f); // Adjust arrow length as needed
     }
 
-    // Present the rendered frame to the screen
     SDL_RenderPresent(renderer);
 
     SDL_Delay(1);
 }
 
-// Clean up and free SDL resources
 void CleanupDisplay(SDL_Window *window, SDL_Renderer *renderer) {
     if (renderer) {
         SDL_DestroyRenderer(renderer);
