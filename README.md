@@ -53,7 +53,7 @@ The project consists of the following files:
 - **boid.c** – Implements boid logic and behaviors (alignment, cohesion, separation).
 - **display.c** – Handles rendering using SDL2.
 - **utils.c** – Utility functions for vector math and random number generation.
-- **boid.h & display.h** – Header files defining structures and function prototypes.
+- **boid.h, display.h, utils.h** – Header files defining structures and function prototypes.
 
 ## Boid Behavior Details
 
