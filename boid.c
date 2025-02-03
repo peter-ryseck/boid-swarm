@@ -180,7 +180,6 @@ int main()
     bool isRunning = true;
     while (isRunning)
     {
-        Uint64 frameStart = SDL_GetPerformanceCounter();
 
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
